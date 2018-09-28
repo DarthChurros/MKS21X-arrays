@@ -39,6 +39,21 @@ public class ArrayDemo {
     }
   }
 
+  public static int[][] fill2DCopy(int[][] vals) {
+    int[][] ans = new int[vals.length][];
+    for (int i  = 0; i < vals.length; i++) {
+      ans[i] = new int[vals[i].length];
+      for (int j = 0; j < vals[i].length; j++) {
+        if (vals[i][j] >= 0) {
+          ans[i][j] = 1;
+        } else {
+          ans[i][j] = 3;
+        }
+      }
+    }
+    return ans;
+  }
+
   public static void main (String[] args) {
     int[] x = new int[7];
     int[][] y = new int[3][10];
@@ -47,7 +62,7 @@ public class ArrayDemo {
     }
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 10; j++) {
-        y[i][j] = i * j;
+        y[i][j] = i * (j - 4);
       }
     }
     System.out.println("Printing x:");
@@ -56,6 +71,8 @@ public class ArrayDemo {
     printArray(y);
     System.out.println("Number of zeros in y:");
     System.out.println(countZeros2D(y));
+    System.out.println("Copy of y with 1's and 3's");
+    printArray(fill2DCopy(y));
     fill2D(y);
     System.out.println("Filling y with 1's and 3's");
     printArray(y);

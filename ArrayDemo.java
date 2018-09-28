@@ -27,6 +27,18 @@ public class ArrayDemo {
     return count;
   }
 
+  public static void fill2D(int[][] vals) {
+    for (int i = 0; i < vals.length; i++) {
+      for (int j = 0; j <  vals[i].length; j++) {
+        if (i == j) {
+          vals[i][j] = 3;
+        } else {
+          vals[i][j] = 1;
+        }
+      }
+    }
+  }
+
   public static void main (String[] args) {
     int[] x = new int[7];
     int[][] y = new int[3][10];
@@ -38,8 +50,14 @@ public class ArrayDemo {
         y[i][j] = i * j;
       }
     }
+    System.out.println("Printing x:");
     printArray(x);
+    System.out.println("Printing y:");
     printArray(y);
+    System.out.println("Number of zeros in y:");
     System.out.println(countZeros2D(y));
+    fill2D(y);
+    System.out.println("Filling y with 1's and 3's");
+    printArray(y);
   }
 }
